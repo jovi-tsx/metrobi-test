@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeno's Paradox: Achilles and the Tortoise</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .race-track {
+        width: 80%;
+        height: 70px;
+        background-color: #ddd;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .runner {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        background-size: cover;
+      }
+      #achilles {
+        left: 0;
+      }
+      #tortoise {
+        left: 250px;
+      }
+      .controls {
+        margin-top: 20px;
+        text-align: center;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="race-track">
+      <div id="achilles" class="runner">
+        <svg
+          width="50"
+          height="50"
+          viewBox="0 0 25 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          transform="rotate(0 0 0)"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M16.4337 6.35C16.4337 8.74 14.4937 10.69 12.0937 10.69L12.0837 10.68C9.69365 10.68 7.74365 8.73 7.74365 6.34C7.74365 3.95 9.70365 2 12.0937 2C14.4837 2 16.4337 3.96 16.4337 6.35ZM14.9337 6.34C14.9337 4.78 13.6637 3.5 12.0937 3.5C10.5337 3.5 9.25365 4.78 9.25365 6.34C9.25365 7.9 10.5337 9.18 12.0937 9.18C13.6537 9.18 14.9337 7.9 14.9337 6.34Z"
+            fill="#343C54"
+          />
+          <path
+            d="M12.0235 12.1895C14.6935 12.1895 16.7835 12.9395 18.2335 14.4195V14.4095C20.2801 16.4956 20.2739 19.2563 20.2735 19.4344L20.2735 19.4395C20.2635 19.8495 19.9335 20.1795 19.5235 20.1795H19.5135C19.0935 20.1695 18.7735 19.8295 18.7735 19.4195C18.7735 19.3695 18.7735 17.0895 17.1535 15.4495C15.9935 14.2795 14.2635 13.6795 12.0235 13.6795C9.78346 13.6795 8.05346 14.2795 6.89346 15.4495C5.27346 17.0995 5.27346 19.3995 5.27346 19.4195C5.27346 19.8295 4.94346 20.1795 4.53346 20.1795C4.17346 20.1995 3.77346 19.8595 3.77346 19.4495L3.77345 19.4448C3.77305 19.2771 3.76646 16.506 5.81346 14.4195C7.26346 12.9395 9.35346 12.1895 12.0235 12.1895Z"
+            fill="#343C54"
+          />
+        </svg>
+      </div>
+      <div id="tortoise" class="runner">
+        <svg
+          width="50"
+          height="50"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          transform="rotate(0 0 0)"
+        >
+          <path
+            d="M12.3521 14.9594C11.855 14.9594 11.4521 15.3623 11.4521 15.8594C11.4521 16.3564 11.855 16.7594 12.3521 16.7594C12.8491 16.7594 13.2522 16.3564 13.2522 15.8594C13.2522 15.3623 12.8491 14.9594 12.3521 14.9594Z"
+            fill="#343C54"
+          />
+          <path
+            d="M8.55908 12C8.55908 11.0335 9.34258 10.25 10.3091 10.25C11.2756 10.25 12.0592 11.0335 12.0592 12C12.0592 12.9665 11.2757 13.75 10.3092 13.75C9.34268 13.75 8.55908 12.9665 8.55908 12Z"
+            fill="#343C54"
+          />
+          <path
+            d="M14.6289 10.0195C13.9385 10.0195 13.3789 10.5792 13.3789 11.2695C13.3789 11.9599 13.9385 12.5195 14.6289 12.5195C15.3193 12.5195 15.879 11.9599 15.879 11.2695C15.879 10.5792 15.3193 10.0195 14.6289 10.0195Z"
+            fill="#343C54"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M2.82081 5.60434C8.14632 1.63189 15.8531 1.63189 21.1786 5.60434C22.1242 6.30965 22.242 7.59339 21.6453 8.50425L13.8818 20.355C12.9935 21.7111 11.006 21.7111 10.1176 20.355L2.35416 8.50425C1.75746 7.59338 1.87527 6.30964 2.82081 5.60434ZM20.2818 6.80669C15.4883 3.23111 8.51113 3.2311 3.71767 6.80668C3.47916 6.98459 3.39614 7.3575 3.6089 7.68227L4.4518 8.96895C8.75759 5.51008 15.2417 5.51035 19.5471 8.96976L20.3906 7.68227C20.6033 7.3575 20.5203 6.9846 20.2818 6.80669ZM11.3724 19.5331L5.27825 10.2305C9.07135 7.08956 14.9279 7.08983 18.7207 10.2313L12.6271 19.5331C12.331 19.9851 11.6685 19.9851 11.3724 19.5331Z"
+            fill="#343C54"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="start()">Start Race</button>
+    </div>
+
+    <script>
+      function start() {
+        const achilles = document.getElementById('achilles');
+        const tortoise = document.getElementById('tortoise');
+
+        let achillesPosition = 0;
+        let tortoisePosition = 250;
+
+        const speedAchilles = 2;
+        const speedTortoise = 1;
+
+        function animate() {
+          if (achillesPosition < tortoisePosition) {
+            achillesPosition += speedAchilles;
+            tortoisePosition += speedTortoise;
+
+            achilles.style.left = `${achillesPosition}px`;
+            tortoise.style.left = `${tortoisePosition}px`;
+
+            window.requestAnimationFrame(animate);
+          }
+        }
+
+        animate();
+      }
+    </script>
+  </body>
+</html>
